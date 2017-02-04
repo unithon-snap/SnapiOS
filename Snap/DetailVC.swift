@@ -198,7 +198,11 @@ extension DetailVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayo
             self.jobLabel.alpha = 0
             self.segmentedControl.alpha = 0
             self.profileImageView.alpha = 0
+            
+            self.reviewView.frame = CGRect(x: 0, y: 64, width: self.view.frame.width, height: self.view.frame.height - 64)
         })
+        
+        
     }
     
     func openInfoView() {
@@ -207,6 +211,8 @@ extension DetailVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayo
             self.profileImageView.frame = self.frameProfileImageView!
             self.profileNameLabel.frame = self.frameNameLabel!
             self.collectionView.frame = self.frameCollectionView!
+            self.reviewView.frame = self.frameCollectionView!
+
             self.jobLabel.frame = self.frameJobLabel!
             self.segmentedControl.frame = self.frameSegControl!
             
