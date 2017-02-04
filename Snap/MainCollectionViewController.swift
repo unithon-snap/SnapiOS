@@ -142,7 +142,7 @@ class MainCollectionViewController: UICollectionViewController {
         
         
         let mainLogo = UIImageView(frame: CGRect(x: 149*widthRatio, y: 73*heightRatio, width: 78*widthRatio, height: 78*heightRatio))
-        mainLogo.image = UIImage(named: "neptune")
+        mainLogo.image = UIImage(named: "icon")
         //mainLogo.sizeToFit()
         collectionView?.addSubview(mainLogo)
         
@@ -176,18 +176,18 @@ class MainCollectionViewController: UICollectionViewController {
             print("menu clicked")
         case BUTTON.SEARCH:
             print("button clicked")
-            self.performSegue(withIdentifier:"ToNext", sender: self)
+            //self.performSegue(withIdentifier:"ToNext", sender: self)
         default:
             print("default")
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ToNext"{
-            
-            print("segueToNext segue execute")
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "ToNext"{
+//            
+//            print("segueToNext segue execute")
+//        }
+//    }
     
 }
 

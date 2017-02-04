@@ -52,7 +52,7 @@ class DetailVC: UIViewController {
         setupViews()
         getInfoFromServer()
         
-        print(id)
+        print(id!)
     }
     
     func getInfoFromServer(){
