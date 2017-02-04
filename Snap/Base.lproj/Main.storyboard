@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="khU-pn-eah">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ele-UK-wPD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,7 +26,70 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-372" y="-197"/>
+            <point key="canvasLocation" x="598" y="-381"/>
+        </scene>
+        <!--IntroVC-->
+        <scene sceneID="Jvg-jn-Hwm">
+            <objects>
+                <viewController id="ele-UK-wPD" customClass="IntroVC" customModule="Snap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cZs-Hi-162"/>
+                        <viewControllerLayoutGuide type="bottom" id="FDs-h3-KUW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ASB-8C-2Sc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashlogo" translatesAutoresizingMaskIntoConstraints="NO" id="jV3-Wl-arb">
+                                <rect key="frame" x="117" y="157" width="141" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="Wc2-jR-Cow"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="닉네임을 입력해주세요." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e5R-sc-bAK">
+                                <rect key="frame" x="67" y="351" width="240" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sUS-bV-V4X">
+                                <rect key="frame" x="67" y="384" width="240" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G8S-px-bKX">
+                                <rect key="frame" x="79" y="440" width="217" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="일반회원">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="khU-pn-eah" kind="presentation" modalTransitionStyle="crossDissolve" id="4cK-b0-Ra3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRb-rt-R2i">
+                                <rect key="frame" x="79" y="504" width="217" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="포토그래퍼"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jV3-Wl-arb" firstAttribute="leading" secondItem="ASB-8C-2Sc" secondAttribute="leadingMargin" constant="101" id="2FB-cI-u6E"/>
+                            <constraint firstItem="jV3-Wl-arb" firstAttribute="top" secondItem="cZs-Hi-162" secondAttribute="bottom" constant="137" id="DSx-8D-oEv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jV3-Wl-arb" secondAttribute="trailing" constant="101" id="POw-3x-hPP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="normalButton" destination="G8S-px-bKX" id="Atd-AC-egj"/>
+                        <outlet property="photographerButton" destination="iRb-rt-R2i" id="bHZ-dm-0yO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tdr-uj-tQ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-282.39999999999998" y="286.50674662668666"/>
         </scene>
         <!--Main Collection View Controller-->
         <scene sceneID="31g-XL-4DY">
@@ -59,7 +123,10 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FgK-ki-RnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="351" y="287"/>
+            <point key="canvasLocation" x="599" y="287"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splashlogo" width="488" height="190"/>
+    </resources>
 </document>

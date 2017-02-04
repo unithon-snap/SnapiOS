@@ -16,12 +16,17 @@ class ReviewVC: UIViewController {
     
     var frameCollectionView: CGRect?
     
+    @IBOutlet weak var postReviewButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupViews()
         
         // Do any additional setup after loading the view.
+    }
+    func setupViews() {
+        postReviewButton.layer.cornerRadius = postReviewButton.frame.height / 2
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -53,6 +58,8 @@ extension ReviewVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayo
         // get a reference to our storyboard cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath as IndexPath) as! ReviewCell
         
+        
+        
         return cell
     }   // 셀의 내용
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -62,7 +69,7 @@ extension ReviewVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayo
         return CGSize(width: collectionView.frame.width, height: 250)
     } // 셀의 높이
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
+        return 0
     } // 셀의 간격
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         

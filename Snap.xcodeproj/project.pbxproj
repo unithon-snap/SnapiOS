@@ -34,6 +34,9 @@
 		EFC11BA61E464FBF006B15D0 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC11BA41E464FBF006B15D0 /* ReviewVC.swift */; };
 		EFC11BA71E464FBF006B15D0 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC11BA51E464FBF006B15D0 /* ReviewCell.swift */; };
 		EFC11BA91E465056006B15D0 /* profileUser.png in Resources */ = {isa = PBXBuildFile; fileRef = EFC11BA81E465056006B15D0 /* profileUser.png */; };
+		EFC11BAB1E4656E1006B15D0 /* PostReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC11BAA1E4656E1006B15D0 /* PostReviewVC.swift */; };
+		EFC11BAD1E4658AD006B15D0 /* ShadyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC11BAC1E4658AD006B15D0 /* ShadyImageView.swift */; };
+		EFC11BAF1E466F52006B15D0 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC11BAE1E466F52006B15D0 /* IntroVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +71,9 @@
 		EFC11BA41E464FBF006B15D0 /* ReviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
 		EFC11BA51E464FBF006B15D0 /* ReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		EFC11BA81E465056006B15D0 /* profileUser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileUser.png; sourceTree = "<group>"; };
+		EFC11BAA1E4656E1006B15D0 /* PostReviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostReviewVC.swift; sourceTree = "<group>"; };
+		EFC11BAC1E4658AD006B15D0 /* ShadyImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadyImageView.swift; sourceTree = "<group>"; };
+		EFC11BAE1E466F52006B15D0 /* IntroVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,7 @@
 				37C9E6131E45B203002F2021 /* DeviceResize.swift */,
 				37C9E6151E45B246002F2021 /* MainCollectionViewController.swift */,
 				37467CE11E45ABE1001B7A77 /* Main.storyboard */,
+				EFC11BAE1E466F52006B15D0 /* IntroVC.swift */,
 				37467CE41E45ABE1001B7A77 /* Assets.xcassets */,
 				37467CE61E45ABE1001B7A77 /* LaunchScreen.storyboard */,
 				37467CE91E45ABE1001B7A77 /* Info.plist */,
@@ -154,7 +161,9 @@
 				EFC11B831E46175C006B15D0 /* PhotoCell.swift */,
 				EFC11B841E46175C006B15D0 /* PhotographerInfoVC.swift */,
 				EFC11BA41E464FBF006B15D0 /* ReviewVC.swift */,
+				EFC11BAA1E4656E1006B15D0 /* PostReviewVC.swift */,
 				EFC11BA51E464FBF006B15D0 /* ReviewCell.swift */,
+				EFC11BAC1E4658AD006B15D0 /* ShadyImageView.swift */,
 			);
 			name = Goodnews;
 			sourceTree = "<group>";
@@ -210,7 +219,7 @@
 				TargetAttributes = {
 					37467CD91E45ABE1001B7A77 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 537GQ2WKJ4;
+						DevelopmentTeam = M3EB59KQH2;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -314,6 +323,7 @@
 				37C9E6121E45B166002F2021 /* UIView+Extensions.swift in Sources */,
 				37C9E6101E45B166002F2021 /* Photo.swift in Sources */,
 				37C9E6161E45B246002F2021 /* MainCollectionViewController.swift in Sources */,
+				EFC11BAB1E4656E1006B15D0 /* PostReviewVC.swift in Sources */,
 				EFC11BA61E464FBF006B15D0 /* ReviewVC.swift in Sources */,
 				37467CE01E45ABE1001B7A77 /* MainViewController.swift in Sources */,
 				EFC11B8F1E46175C006B15D0 /* DetailVC.swift in Sources */,
@@ -322,6 +332,8 @@
 				EFC11B901E46175C006B15D0 /* PhotoCell.swift in Sources */,
 				EFC11BA71E464FBF006B15D0 /* ReviewCell.swift in Sources */,
 				37C9E6111E45B166002F2021 /* PhotoCaptionCell.swift in Sources */,
+				EFC11BAF1E466F52006B15D0 /* IntroVC.swift in Sources */,
+				EFC11BAD1E4658AD006B15D0 /* ShadyImageView.swift in Sources */,
 				EFC11B911E46175C006B15D0 /* PhotographerInfoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,7 +456,7 @@
 			baseConfigurationReference = A206C652FD1C8525B9C58EDE /* Pods-Snap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 537GQ2WKJ4;
+				DEVELOPMENT_TEAM = M3EB59KQH2;
 				INFOPLIST_FILE = Snap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -459,7 +471,7 @@
 			baseConfigurationReference = 005C77DD5F1734A1FE7EF3B4 /* Pods-Snap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 537GQ2WKJ4;
+				DEVELOPMENT_TEAM = M3EB59KQH2;
 				INFOPLIST_FILE = Snap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
