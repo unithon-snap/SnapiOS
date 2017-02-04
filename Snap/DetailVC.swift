@@ -11,7 +11,7 @@ import UIKit
 class DetailVC: UIViewController {
     
     // Mark: 한경님께 전달받을 변수
-    var id: String?
+    var id: String = ""
     
     //---------------------------------
     
@@ -41,18 +41,19 @@ class DetailVC: UIViewController {
     var frameSegControl: CGRect?
     var frameCollectionView: CGRect?
     
-    var sampleImages = [UIImage(named: "photoSample_1.jpg"),
-                        UIImage(named: "photoSample_2.jpg"),
-                        UIImage(named: "photoSample_3.jpg"),
-                        UIImage(named: "photoSample_4.jpg"),
-                        UIImage(named: "photoSample_5.jpg")]
+    var sampleImages:[UIImage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sampleImages = [UIImage(data: NSData(contentsOf: NSURL(string: "http://ssoma.xyz:3000/imgs/\(id)/pic_\(0).png")! as URL)! as Data)!,
+                        UIImage(data: NSData(contentsOf: NSURL(string: "http://ssoma.xyz:3000/imgs/\(id)/pic_\(1).png")! as URL)! as Data)!,
+                        UIImage(data: NSData(contentsOf: NSURL(string: "http://ssoma.xyz:3000/imgs/\(id)/pic_\(2).png")! as URL)! as Data)!,
+                        UIImage(data: NSData(contentsOf: NSURL(string: "http://ssoma.xyz:3000/imgs/\(id)/pic_\(3).png")! as URL)! as Data)!,
+                        UIImage(data: NSData(contentsOf: NSURL(string: "http://ssoma.xyz:3000/imgs/\(id)/pic_\(4).png")! as URL)! as Data)!]
         setupViews()
         getInfoFromServer()
         
-        print(id!)
+        print(id)
     }
     
     func getInfoFromServer(){
@@ -150,8 +151,8 @@ extension DetailVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayo
     }   // 셀의 내용
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let imgSize = sampleImages[indexPath.row]?.size
-        let imgRatio = (imgSize?.height)! / (imgSize?.width)!
+        let imgSize = sampleImages[indexPath.row].size
+        let imgRatio = (imgSize.height) / (imgSize.width)
 
 
         
