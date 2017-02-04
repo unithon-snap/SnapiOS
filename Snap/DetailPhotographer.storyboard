@@ -175,20 +175,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6Um-O4-Bd1">
-                                <rect key="frame" x="0.0" y="48" width="375" height="287"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="82" width="375" height="253"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bgh-bS-bD7">
-                                    <size key="itemSize" width="375" height="256"/>
+                                    <size key="itemSize" width="375" height="184"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="reviewCell" id="pyg-MC-mkZ" customClass="ReviewCell" customModule="Snap" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="184"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="184"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileUser.png" translatesAutoresizingMaskIntoConstraints="NO" id="v6x-eG-6c8">
@@ -208,7 +208,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="잘 찍어주셔서 감사합니다. 사랑해요" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0Cb-Ne-E0b">
-                                                    <rect key="frame" x="76.5" y="87" width="221" height="153"/>
+                                                    <rect key="frame" x="76.5" y="87" width="221" height="81"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -240,9 +240,10 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZiS-m0-PO8">
-                                <rect key="frame" x="114" y="8" width="147" height="32"/>
+                                <rect key="frame" x="114" y="26" width="147" height="32"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="8xb-VK-KAR"/>
                                     <constraint firstAttribute="width" constant="147" id="CTm-Uo-T4k"/>
                                 </constraints>
                                 <state key="normal" title="리뷰남기기">
@@ -255,13 +256,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZiS-m0-PO8" firstAttribute="top" secondItem="fHD-y4-wMH" secondAttribute="bottom" constant="8" id="ElP-g3-DFK"/>
+                            <constraint firstItem="ZiS-m0-PO8" firstAttribute="top" secondItem="fHD-y4-wMH" secondAttribute="bottom" constant="26" id="ElP-g3-DFK"/>
                             <constraint firstItem="ZiS-m0-PO8" firstAttribute="centerX" secondItem="QYb-Th-pn2" secondAttribute="centerX" id="Knk-Vx-hHD"/>
-                            <constraint firstItem="6Um-O4-Bd1" firstAttribute="top" secondItem="ZiS-m0-PO8" secondAttribute="bottom" constant="8" id="NC4-Wj-yJf"/>
                             <constraint firstAttribute="trailing" secondItem="6Um-O4-Bd1" secondAttribute="trailing" id="VWF-UB-0bP"/>
                             <constraint firstItem="ckz-bf-dYa" firstAttribute="top" secondItem="6Um-O4-Bd1" secondAttribute="bottom" id="YQk-id-Rvb"/>
+                            <constraint firstItem="6Um-O4-Bd1" firstAttribute="top" secondItem="ZiS-m0-PO8" secondAttribute="bottom" constant="24" id="dCH-nd-dyO"/>
                             <constraint firstItem="6Um-O4-Bd1" firstAttribute="leading" secondItem="QYb-Th-pn2" secondAttribute="leading" id="efp-TL-cec"/>
-                            <constraint firstItem="6Um-O4-Bd1" firstAttribute="top" secondItem="fHD-y4-wMH" secondAttribute="bottom" constant="48" id="jTJ-9U-HqD"/>
                         </constraints>
                     </view>
                     <connections>
@@ -271,7 +271,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GRL-tt-jIS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700" y="310"/>
+            <point key="canvasLocation" x="700" y="309.89505247376314"/>
         </scene>
         <!--Post ReviewVC-->
         <scene sceneID="Raq-Xg-xdq">

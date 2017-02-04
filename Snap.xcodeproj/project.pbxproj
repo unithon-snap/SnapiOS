@@ -37,6 +37,8 @@
 		EFC11BAB1E4656E1006B15D0 /* PostReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC11BAA1E4656E1006B15D0 /* PostReviewVC.swift */; };
 		EFC11BAD1E4658AD006B15D0 /* ShadyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC11BAC1E4658AD006B15D0 /* ShadyImageView.swift */; };
 		EFC11BAF1E466F52006B15D0 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC11BAE1E466F52006B15D0 /* IntroVC.swift */; };
+		EFC11BB21E4677A0006B15D0 /* starDisable.png in Resources */ = {isa = PBXBuildFile; fileRef = EFC11BB01E4677A0006B15D0 /* starDisable.png */; };
+		EFC11BB51E4679A0006B15D0 /* starActive.png in Resources */ = {isa = PBXBuildFile; fileRef = EFC11BB41E4679A0006B15D0 /* starActive.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		EFC11BAA1E4656E1006B15D0 /* PostReviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostReviewVC.swift; sourceTree = "<group>"; };
 		EFC11BAC1E4658AD006B15D0 /* ShadyImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadyImageView.swift; sourceTree = "<group>"; };
 		EFC11BAE1E466F52006B15D0 /* IntroVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
+		EFC11BB01E4677A0006B15D0 /* starDisable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starDisable.png; sourceTree = "<group>"; };
+		EFC11BB41E4679A0006B15D0 /* starActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starActive.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,8 @@
 				EFC11B8B1E46175C006B15D0 /* photoSample_4.jpg */,
 				EFC11B8C1E46175C006B15D0 /* photoSample_5.jpg */,
 				EFC11B9D1E461FAF006B15D0 /* buttonBack.png */,
+				EFC11BB41E4679A0006B15D0 /* starActive.png */,
+				EFC11BB01E4677A0006B15D0 /* starDisable.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -254,6 +260,7 @@
 				37467CE51E45ABE1001B7A77 /* Assets.xcassets in Resources */,
 				EFC11BA91E465056006B15D0 /* profileUser.png in Resources */,
 				EFC11B991E46175C006B15D0 /* photoSample_5.jpg in Resources */,
+				EFC11BB21E4677A0006B15D0 /* starDisable.png in Resources */,
 				EFC11B8D1E46175C006B15D0 /* DetailPhotographer.storyboard in Resources */,
 				EFC11B9E1E461FAF006B15D0 /* buttonBack.png in Resources */,
 				EFC11B931E46175C006B15D0 /* profileImage.png in Resources */,
@@ -261,6 +268,7 @@
 				EFC11B981E46175C006B15D0 /* photoSample_4.jpg in Resources */,
 				37467CE31E45ABE1001B7A77 /* Main.storyboard in Resources */,
 				EFC11B941E46175C006B15D0 /* logoGoogle.png in Resources */,
+				EFC11BB51E4679A0006B15D0 /* starActive.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

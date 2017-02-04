@@ -8,7 +8,8 @@
 
 import UIKit
 import AVFoundation
-
+import Alamofire
+import SwiftyJSON
 // Inspired by: RayWenderlich.com pinterest-basic-layout
 
 class MainCollectionViewController: UICollectionViewController {
@@ -41,7 +42,8 @@ class MainCollectionViewController: UICollectionViewController {
     let layout = MultipleColumnLayout()
     
     // MARK: Data
-    fileprivate let photos = Photo.allPhotos()
+    //fileprivate let photos = Photo.allPhotos()
+    var photos : [Photo] = []
     
     required init(coder aDecoder: NSCoder) {
         let layout = MultipleColumnLayout()
@@ -55,8 +57,11 @@ class MainCollectionViewController: UICollectionViewController {
         heightRatio = userDevice.userDeviceHeight()
         widthRatio = userDevice.userDeviceWidth()
         
+        loadPhotos()
+        
         setUpUI()
     }
+    
     
     override func viewWillTransition(
         to size: CGSize,
@@ -71,6 +76,73 @@ class MainCollectionViewController: UICollectionViewController {
         layout.invalidateLayout()
     }
     
+    func loadPhotos() {
+        
+        //서버통신
+        let baseURL = "http://ssoma.xyz:3000/v1.0/getData"
+        
+        Alamofire.request(baseURL,method : .get, parameters: nil, encoding: URLEncoding.default, headers: nil)
+            .responseJSON { (response:DataResponse<Any>) in
+                
+                switch(response.result) {
+                case .success(_):
+                    if response.result.value != nil{
+                        
+                        //print(response.result.value!)
+                        
+                        let json = JSON(response.result.value!)
+                        
+                        print(json)
+                        print(json.count)
+                        
+                        
+                        //                                for i in 0..<json.count{
+                        //
+                        //                                    print(json[i]["resume_idx"].int!.description)
+                        //                                }
+                        
+                        
+                        //print(json[2]["resume_tag"].string!)
+                        //print(json["portfolio_picure_1"].stringValue)
+                        //print(json["resume_idx"].int?.description)
+                        
+                        for i in 0..<json.count {
+                            
+                            
+                            //                                    if let images = json[i]["portfolio_picure_1"].string, let tags = json[i]["resume_tag"].string, let idxs = json[i]["resume_idx"].string{
+                            //                                        print("asfdfdsfd")
+                            //                                    photos.append(Photo( image: UIImage(data: NSData(contentsOf: NSURL(string: images)! as URL)! as Data)!, tag: tags, pId: idxs))
+                            //                                    }
+                            
+                            
+                            //let images = json[i]["portfolio_picure_1"].string
+                            let tags = json[i]["resume_tag"].string
+                            let idxs = json[i]["resume_idx"].int!.description
+                            
+                            let url = "http://ssoma.xyz:3000/imgs/\(idxs)/pic_\(0).png"
+                            print(url)
+                            self.photos.append(Photo( image: UIImage(data: NSData(contentsOf: NSURL(string: url)! as URL)! as Data)!, tag: tags!, pId: idxs))
+                            
+                            //self.photos.append(Photo( image: UIImage(named:"image0\(i+1)")!, tag: tags!, pId: idxs))
+                        }
+                        
+                        
+                        self.collectionView?.reloadData()
+                    }
+                    break
+                    
+                case .failure(_):
+                    
+                    break
+                    
+                }
+        }
+        
+        
+        
+        
+    }
+    
     // MARK: Private
     
     fileprivate func setUpUI() {
@@ -78,7 +150,6 @@ class MainCollectionViewController: UICollectionViewController {
         //        if let patternImage = UIImage(named: "pattern") {
         //            view.backgroundColor = UIColor(patternImage: patternImage)
         //        }
-        
         view.backgroundColor = UIColor.white
         
         // Set title
@@ -142,13 +213,8 @@ class MainCollectionViewController: UICollectionViewController {
         collectionView?.addSubview(search)
         
         
-        
-        let mainLogo = ShadyImageView(frame: CGRect(x: 149*widthRatio, y: 73*heightRatio, width: 78*widthRatio, height: 78*heightRatio))
-
-        mainLogo.shadowOffset = CGSize(width: 0, height: 2)
-        
+        let mainLogo = UIImageView(frame: CGRect(x: 149*widthRatio, y: 73*heightRatio, width: 78*widthRatio, height: 78*heightRatio))
         mainLogo.image = UIImage(named: "icon")
-        
         //mainLogo.sizeToFit()
         collectionView?.addSubview(mainLogo)
         
@@ -176,23 +242,24 @@ class MainCollectionViewController: UICollectionViewController {
     
     func buttonPressed(sender: UIButton!) {
         
+        
         switch sender.tag {
         case BUTTON.MENU:
             print("menu clicked")
         case BUTTON.SEARCH:
             print("button clicked")
-            //self.performSegue(withIdentifier:"ToNext", sender: self)
+        //self.performSegue(withIdentifier:"ToNext", sender: self)
         default:
             print("default")
         }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "ToNext"{
-//            
-//            print("segueToNext segue execute")
-//        }
-//    }
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if segue.identifier == "ToNext"{
+    //
+    //            print("segueToNext segue execute")
+    //        }
+    //    }
     
 }
 
@@ -236,7 +303,7 @@ extension MainCollectionViewController {
         controller.id = photos[indexPath.row].pId
         present(controller, animated: true, completion: nil)
         
-//        self.performSegue(withIdentifier:"ToDetail", sender: self)
+        //        self.performSegue(withIdentifier:"ToDetail", sender: self)
         //        let controller = self.storyboard?.instantiateViewController(withIdentifier: "secondVC")
         //        self.present(controller!, animated: true, completion: nil)
     }
