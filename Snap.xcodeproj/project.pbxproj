@@ -19,6 +19,7 @@
 		37C9E6121E45B166002F2021 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C9E60E1E45B166002F2021 /* UIView+Extensions.swift */; };
 		37C9E6141E45B203002F2021 /* DeviceResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C9E6131E45B203002F2021 /* DeviceResize.swift */; };
 		37C9E6161E45B246002F2021 /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C9E6151E45B246002F2021 /* MainCollectionViewController.swift */; };
+		37E726901E4698480049C8DC /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7268F1E4698480049C8DC /* Review.swift */; };
 		EFC11B8D1E46175C006B15D0 /* DetailPhotographer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFC11B801E46175C006B15D0 /* DetailPhotographer.storyboard */; };
 		EFC11B8F1E46175C006B15D0 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC11B821E46175C006B15D0 /* DetailVC.swift */; };
 		EFC11B901E46175C006B15D0 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC11B831E46175C006B15D0 /* PhotoCell.swift */; };
@@ -56,6 +57,7 @@
 		37C9E60E1E45B166002F2021 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		37C9E6131E45B203002F2021 /* DeviceResize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceResize.swift; sourceTree = "<group>"; };
 		37C9E6151E45B246002F2021 /* MainCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
+		37E7268F1E4698480049C8DC /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		A1EE65C69AB873973E5AD4B3 /* Pods_Snap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A206C652FD1C8525B9C58EDE /* Pods-Snap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Snap/Pods-Snap.debug.xcconfig"; sourceTree = "<group>"; };
 		EFC11B801E46175C006B15D0 /* DetailPhotographer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailPhotographer.storyboard; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				EFC11BAA1E4656E1006B15D0 /* PostReviewVC.swift */,
 				EFC11BA51E464FBF006B15D0 /* ReviewCell.swift */,
 				EFC11BAC1E4658AD006B15D0 /* ShadyImageView.swift */,
+				37E7268F1E4698480049C8DC /* Review.swift */,
 			);
 			name = Goodnews;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				EFC11B901E46175C006B15D0 /* PhotoCell.swift in Sources */,
 				EFC11BA71E464FBF006B15D0 /* ReviewCell.swift in Sources */,
 				37C9E6111E45B166002F2021 /* PhotoCaptionCell.swift in Sources */,
+				37E726901E4698480049C8DC /* Review.swift in Sources */,
 				EFC11BAF1E466F52006B15D0 /* IntroVC.swift in Sources */,
 				EFC11BAD1E4658AD006B15D0 /* ShadyImageView.swift in Sources */,
 				EFC11B911E46175C006B15D0 /* PhotographerInfoVC.swift in Sources */,

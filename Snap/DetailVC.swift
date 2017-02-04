@@ -20,6 +20,7 @@ class DetailVC: UIViewController {
     
     var lastOffsetY: CGFloat?
     
+    static var index = ""
     
     // 위 정보뷰 UI들
     @IBOutlet weak var infoView: UIView! // 바탕 뷰
@@ -53,7 +54,9 @@ class DetailVC: UIViewController {
         setupViews()
         getInfoFromServer()
         
-        print(id)
+        DetailVC.index = id
+        print("aaa")
+        print(DetailVC.index)
     }
     
     func getInfoFromServer(){
@@ -173,7 +176,7 @@ extension DetailVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayo
         
         lastOffsetY = scrollView.contentOffset.y
         
-        print(lastOffsetY)
+        //print(lastOffsetY)
         
     }
     

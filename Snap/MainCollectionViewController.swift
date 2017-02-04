@@ -213,7 +213,8 @@ class MainCollectionViewController: UICollectionViewController {
         collectionView?.addSubview(search)
         
         
-        let mainLogo = UIImageView(frame: CGRect(x: 149*widthRatio, y: 73*heightRatio, width: 78*widthRatio, height: 78*heightRatio))
+        let mainLogo = ShadyImageView(frame: CGRect(x: 149*widthRatio, y: 73*heightRatio, width: 78*widthRatio, height: 78*heightRatio))
+        mainLogo.shadowOffset = CGSize(width: 0, height: 2)
         mainLogo.image = UIImage(named: "icon")
         //mainLogo.sizeToFit()
         collectionView?.addSubview(mainLogo)

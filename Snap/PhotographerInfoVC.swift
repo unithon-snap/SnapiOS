@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class PhotographerInfoVC: UIViewController {
 
@@ -26,26 +28,77 @@ class PhotographerInfoVC: UIViewController {
     var slogan : String = ""
     var phoneNumber :String = ""
     var kakao :String = ""
-    var email :String = ""
+    var emailInfo :String = ""
     var starList : [String] = ["staroff","staroff","staroff","staroff","staroff"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        getGrapherInfo()
         heightRatio = userDevice.userDeviceHeight()
         widthRatio = userDevice.userDeviceWidth()
-        setStarView()
-        setView()
-        
-        
         
         // Do any additional setup after loading the view.
     }
+    override func viewDidAppear(_ animated: Bool) {
+        //alamofire 통신 다음에 오는 곳
+        setStarView()
+        setView()
+        }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+   
+    
+    func getGrapherInfo() {
+        
+        //서버통신
+        let baseURL = "http://ssoma.xyz:3000/v1.0/detailInfo"
+       
+        let parameters : Parameters = ["resumIdx":DetailVC.index]
+        
+        Alamofire.request(baseURL,method : .post, parameters: parameters, encoding: URLEncoding.default, headers: nil)
+            .responseJSON { (response:DataResponse<Any>) in
+                
+                switch(response.result) {
+                case .success(_):
+                    if response.result.value != nil{
+                        
+                        //print(response.result.value!)
+                        
+                        let json = JSON(response.result.value!)
+                        
+                        print(json)
+                        
+                        self.kakao = json[0]["resume_kakaoID"].stringValue
+                        self.slogan = json[0]["resume_intro"].stringValue
+                        self.phoneNumber = json[0]["resume_contact"].stringValue
+                        self.emailInfo = json[0]["resume_email"].stringValue
+                        self.starcount = json[0]["resume_star"].intValue
+                        
+                        
+                       
+                        
+                        //self.setView(a: json["resume_intro"].stringValue, b: json["resume_contact"].stringValue,c: json["resume_kakaoID"].stringValue, d: json["resume_email"].stringValue)
+                    }
+                    
+                    break
+                    
+                case .failure(_):
+                    
+                    break
+                    
+                }
+        }
+        
+        
+        
+        
+    }
+    
     func setStarView(){
         
         for i in 0..<starcount{
@@ -83,7 +136,7 @@ class PhotographerInfoVC: UIViewController {
         
                 let label = UILabel(frame: CGRect(x:widthRatio*0, y:heightRatio*94, width:375, height: 19))
                 label.textAlignment = NSTextAlignment.center
-                label.text = "당신의 가장 빛나는 순간을 담겠습니다."
+                label.text = slogan
                 label.font = UIFont.systemFont(ofSize: 17)
                 view.addSubview(label)
         
@@ -95,7 +148,7 @@ class PhotographerInfoVC: UIViewController {
         
         let phone1 = UILabel(frame: CGRect(x:widthRatio*173, y:heightRatio*144, width:122, height: 19))
         phone1.textAlignment = NSTextAlignment.left
-        phone1.text = "010-2312-0032"
+        phone1.text = phoneNumber
         phone1.font = UIFont.systemFont(ofSize: 12)
         view.addSubview(phone1)
         
@@ -107,7 +160,7 @@ class PhotographerInfoVC: UIViewController {
         
         let kt1 = UILabel(frame: CGRect(x:widthRatio*173, y:heightRatio*160, width:122, height: 19))
         kt1.textAlignment = NSTextAlignment.left
-        kt1.text = "dnsklegls20"
+        kt1.text = kakao
         kt1.font = UIFont.systemFont(ofSize: 12)
         view.addSubview(kt1)
         
@@ -119,7 +172,7 @@ class PhotographerInfoVC: UIViewController {
         
         let email1 = UILabel(frame: CGRect(x:widthRatio*173, y:heightRatio*176, width:145, height: 19))
         email1.textAlignment = NSTextAlignment.left
-        email1.text = "dnsklegls20@gmail.com"
+        email1.text = emailInfo
         email1.font = UIFont.systemFont(ofSize: 12)
         view.addSubview(email1)
         
