@@ -19,6 +19,19 @@
 		37C9E6121E45B166002F2021 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C9E60E1E45B166002F2021 /* UIView+Extensions.swift */; };
 		37C9E6141E45B203002F2021 /* DeviceResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C9E6131E45B203002F2021 /* DeviceResize.swift */; };
 		37C9E6161E45B246002F2021 /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C9E6151E45B246002F2021 /* MainCollectionViewController.swift */; };
+		EFC11B8D1E46175C006B15D0 /* DetailPhotographer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFC11B801E46175C006B15D0 /* DetailPhotographer.storyboard */; };
+		EFC11B8F1E46175C006B15D0 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC11B821E46175C006B15D0 /* DetailVC.swift */; };
+		EFC11B901E46175C006B15D0 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC11B831E46175C006B15D0 /* PhotoCell.swift */; };
+		EFC11B911E46175C006B15D0 /* PhotographerInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC11B841E46175C006B15D0 /* PhotographerInfoVC.swift */; };
+		EFC11B921E46175C006B15D0 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC11B851E46175C006B15D0 /* ReviewVC.swift */; };
+		EFC11B931E46175C006B15D0 /* profileImage.png in Resources */ = {isa = PBXBuildFile; fileRef = EFC11B861E46175C006B15D0 /* profileImage.png */; };
+		EFC11B941E46175C006B15D0 /* logoGoogle.png in Resources */ = {isa = PBXBuildFile; fileRef = EFC11B871E46175C006B15D0 /* logoGoogle.png */; };
+		EFC11B951E46175C006B15D0 /* photoSample_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFC11B881E46175C006B15D0 /* photoSample_1.jpg */; };
+		EFC11B961E46175C006B15D0 /* photoSample_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFC11B891E46175C006B15D0 /* photoSample_2.jpg */; };
+		EFC11B971E46175C006B15D0 /* photoSample_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFC11B8A1E46175C006B15D0 /* photoSample_3.jpg */; };
+		EFC11B981E46175C006B15D0 /* photoSample_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFC11B8B1E46175C006B15D0 /* photoSample_4.jpg */; };
+		EFC11B991E46175C006B15D0 /* photoSample_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFC11B8C1E46175C006B15D0 /* photoSample_5.jpg */; };
+		EFC11B9E1E461FAF006B15D0 /* buttonBack.png in Resources */ = {isa = PBXBuildFile; fileRef = EFC11B9D1E461FAF006B15D0 /* buttonBack.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +51,19 @@
 		37C9E6151E45B246002F2021 /* MainCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
 		A1EE65C69AB873973E5AD4B3 /* Pods_Snap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A206C652FD1C8525B9C58EDE /* Pods-Snap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Snap/Pods-Snap.debug.xcconfig"; sourceTree = "<group>"; };
+		EFC11B801E46175C006B15D0 /* DetailPhotographer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailPhotographer.storyboard; sourceTree = "<group>"; };
+		EFC11B821E46175C006B15D0 /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		EFC11B831E46175C006B15D0 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		EFC11B841E46175C006B15D0 /* PhotographerInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotographerInfoVC.swift; sourceTree = "<group>"; };
+		EFC11B851E46175C006B15D0 /* ReviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
+		EFC11B861E46175C006B15D0 /* profileImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileImage.png; sourceTree = "<group>"; };
+		EFC11B871E46175C006B15D0 /* logoGoogle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoGoogle.png; sourceTree = "<group>"; };
+		EFC11B881E46175C006B15D0 /* photoSample_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photoSample_1.jpg; sourceTree = "<group>"; };
+		EFC11B891E46175C006B15D0 /* photoSample_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photoSample_2.jpg; sourceTree = "<group>"; };
+		EFC11B8A1E46175C006B15D0 /* photoSample_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photoSample_3.jpg; sourceTree = "<group>"; };
+		EFC11B8B1E46175C006B15D0 /* photoSample_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photoSample_4.jpg; sourceTree = "<group>"; };
+		EFC11B8C1E46175C006B15D0 /* photoSample_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photoSample_5.jpg; sourceTree = "<group>"; };
+		EFC11B9D1E461FAF006B15D0 /* buttonBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonBack.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +99,7 @@
 		37467CDC1E45ABE1001B7A77 /* Snap */ = {
 			isa = PBXGroup;
 			children = (
+				EFC11B7F1E461751006B15D0 /* Goodnews */,
 				37C9E6191E45B696002F2021 /* CollectionPhoto */,
 				37467CDD1E45ABE1001B7A77 /* AppDelegate.swift */,
 				37467CDF1E45ABE1001B7A77 /* MainViewController.swift */,
@@ -112,6 +139,34 @@
 				A1EE65C69AB873973E5AD4B3 /* Pods_Snap.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EFC11B7F1E461751006B15D0 /* Goodnews */ = {
+			isa = PBXGroup;
+			children = (
+				EFC11B9A1E461774006B15D0 /* Resources */,
+				EFC11B801E46175C006B15D0 /* DetailPhotographer.storyboard */,
+				EFC11B821E46175C006B15D0 /* DetailVC.swift */,
+				EFC11B831E46175C006B15D0 /* PhotoCell.swift */,
+				EFC11B841E46175C006B15D0 /* PhotographerInfoVC.swift */,
+				EFC11B851E46175C006B15D0 /* ReviewVC.swift */,
+			);
+			name = Goodnews;
+			sourceTree = "<group>";
+		};
+		EFC11B9A1E461774006B15D0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EFC11B861E46175C006B15D0 /* profileImage.png */,
+				EFC11B871E46175C006B15D0 /* logoGoogle.png */,
+				EFC11B881E46175C006B15D0 /* photoSample_1.jpg */,
+				EFC11B891E46175C006B15D0 /* photoSample_2.jpg */,
+				EFC11B8A1E46175C006B15D0 /* photoSample_3.jpg */,
+				EFC11B8B1E46175C006B15D0 /* photoSample_4.jpg */,
+				EFC11B8C1E46175C006B15D0 /* photoSample_5.jpg */,
+				EFC11B9D1E461FAF006B15D0 /* buttonBack.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,9 +233,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFC11B951E46175C006B15D0 /* photoSample_1.jpg in Resources */,
+				EFC11B971E46175C006B15D0 /* photoSample_3.jpg in Resources */,
 				37467CE81E45ABE1001B7A77 /* LaunchScreen.storyboard in Resources */,
 				37467CE51E45ABE1001B7A77 /* Assets.xcassets in Resources */,
+				EFC11B991E46175C006B15D0 /* photoSample_5.jpg in Resources */,
+				EFC11B8D1E46175C006B15D0 /* DetailPhotographer.storyboard in Resources */,
+				EFC11B9E1E461FAF006B15D0 /* buttonBack.png in Resources */,
+				EFC11B931E46175C006B15D0 /* profileImage.png in Resources */,
+				EFC11B961E46175C006B15D0 /* photoSample_2.jpg in Resources */,
+				EFC11B981E46175C006B15D0 /* photoSample_4.jpg in Resources */,
 				37467CE31E45ABE1001B7A77 /* Main.storyboard in Resources */,
+				EFC11B941E46175C006B15D0 /* logoGoogle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,9 +308,13 @@
 				37C9E6101E45B166002F2021 /* Photo.swift in Sources */,
 				37C9E6161E45B246002F2021 /* MainCollectionViewController.swift in Sources */,
 				37467CE01E45ABE1001B7A77 /* MainViewController.swift in Sources */,
+				EFC11B8F1E46175C006B15D0 /* DetailVC.swift in Sources */,
 				37467CDE1E45ABE1001B7A77 /* AppDelegate.swift in Sources */,
 				37C9E60F1E45B166002F2021 /* MultipleColumnLayoutAttributes.swift in Sources */,
+				EFC11B901E46175C006B15D0 /* PhotoCell.swift in Sources */,
 				37C9E6111E45B166002F2021 /* PhotoCaptionCell.swift in Sources */,
+				EFC11B921E46175C006B15D0 /* ReviewVC.swift in Sources */,
+				EFC11B911E46175C006B15D0 /* PhotographerInfoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

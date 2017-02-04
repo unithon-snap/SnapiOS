@@ -10,17 +10,22 @@ import UIKit
 import AVFoundation
 
 // Inspired by: RayWenderlich.com pinterest-basic-layout
+
 class MainCollectionViewController: UICollectionViewController {
     
+    struct BUTTON{
+        static let MENU = 0
+        static let SEARCH = 1
+    }
     
     let userDevice = DeviceResize(testDeviceModel: DeviceType.IPHONE_7,userDeviceModel: (Float(ScreenSize.SCREEN_WIDTH),Float(ScreenSize.SCREEN_HEIGHT)))
     
-    // test에 내꺼 넣고 user은 저렇게 가도 된다
+    
     
     var heightRatio: CGFloat = 0.0
     var widthRatio: CGFloat = 0.0
     
-  
+    
     // 기기의 너비와 높이
     let width = UIScreen.main.bounds.size.width
     let height = UIScreen.main.bounds.size.height
@@ -31,10 +36,10 @@ class MainCollectionViewController: UICollectionViewController {
     let collectionViewBottomInset: CGFloat = 10
     let collectionViewSideInset: CGFloat = 5
     let collectionViewTopInset: CGFloat = UIApplication.shared.statusBarFrame.height
-
+    
     var numberOfColumns: Int = 2
     let layout = MultipleColumnLayout()
-
+    
     // MARK: Data
     fileprivate let photos = Photo.allPhotos()
     
@@ -70,9 +75,9 @@ class MainCollectionViewController: UICollectionViewController {
     
     fileprivate func setUpUI() {
         // Set background
-//        if let patternImage = UIImage(named: "pattern") {
-//            view.backgroundColor = UIColor(patternImage: patternImage)
-//        }
+        //        if let patternImage = UIImage(named: "pattern") {
+        //            view.backgroundColor = UIColor(patternImage: patternImage)
+        //        }
         view.backgroundColor = UIColor.white
         
         // Set title
@@ -94,25 +99,27 @@ class MainCollectionViewController: UICollectionViewController {
         layout.cellPadding = collectionViewSideInset
         layout.numberOfColumns = numberOfColumns
         
-//        let label = UILabel(frame: CGRect(x:width/2-50, y:height/5-50, width:100, height: 100))
-//        label.textAlignment = NSTextAlignment.center
-//        label.text = "공개된"
-//        collectionView?.addSubview(label)
-//        
-//        
-//        let label2 = UILabel(frame: CGRect(x:width/2-50, y:height/4-60, width:100, height: 100))
-//        label2.textAlignment = NSTextAlignment.center
-//        label2.text = "리스트"
-//        collectionView?.addSubview(label2)
+        //        let label = UILabel(frame: CGRect(x:width/2-50, y:height/5-50, width:100, height: 100))
+        //        label.textAlignment = NSTextAlignment.center
+        //        label.text = "공개된"
+        //        collectionView?.addSubview(label)
+        //
+        //
+        //        let label2 = UILabel(frame: CGRect(x:width/2-50, y:height/4-60, width:100, height: 100))
+        //        label2.textAlignment = NSTextAlignment.center
+        //        label2.text = "리스트"
+        //        collectionView?.addSubview(label2)
         
         let menu = UIButton(type: .system) // let preferred over var here
         
         //button.setTitle("명예의 전당", for: UIControlState.normal)
-    
+        
         menu.frame = CGRect(x:9*widthRatio, y:29*heightRatio, width:20, height: 20)
         menu.setImage(UIImage(named:"menu"), for: .normal)
         menu.tintColor = UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1.0)
         // button.addTarget(self, action: "Action:", for: UIControlEvents.touchUpInside)
+        menu.tag = BUTTON.MENU
+        menu.addTarget(self, action:#selector(buttonPressed(sender:)), for: .touchUpInside)
         collectionView?.addSubview(menu)
         
         
@@ -123,9 +130,16 @@ class MainCollectionViewController: UICollectionViewController {
         search.frame = CGRect(x:330*widthRatio, y:29*heightRatio, width:25, height: 25)
         search.setImage(UIImage(named:"search"), for: .normal)
         search.tintColor = UIColor(red: 156/255, green: 156/255, blue: 156/255, alpha: 1.0)
-        // button.addTarget(self, action: "Action:", for: UIControlEvents.touchUpInside)
+        //search.addTarget(self, action:#selector(action(text:)), for: UIControlEvents.touchUpInside)
+        search.tag = BUTTON.SEARCH
+        
+        // 파라미터 가 없을 경우
+        //search.addTarget(self, action:#selector(buttonPressed), for: .touchUpInside)
+        // 파라미터가 sender인 경우
+        search.addTarget(self, action:#selector(buttonPressed(sender:)), for: .touchUpInside)
+        
         collectionView?.addSubview(search)
-
+        
         
         let mainLogo = UIImageView(frame: CGRect(x: 149*widthRatio, y: 73*heightRatio, width: 78*widthRatio, height: 78*heightRatio))
         mainLogo.image = UIImage(named: "neptune")
@@ -133,24 +147,48 @@ class MainCollectionViewController: UICollectionViewController {
         collectionView?.addSubview(mainLogo)
         
         
-//
-//        let items = ["최신순", "인기순"]
-//        let customSC = UISegmentedControl(items: items)
-//        customSC.selectedSegmentIndex = 0
-//        customSC.frame = CGRect(x:5 , y:height/2.5,
-//                                width:width-20, height:height/20)
-//        customSC.layer.cornerRadius = 5.0  // Don't let background bleed
-//        customSC.backgroundColor = UIColor.white
-//        customSC.tintColor = UIColor.darkGray
-//        
-//        
-//         collectionView?.addSubview(customSC)
-
+        //
+        //        let items = ["최신순", "인기순"]
+        //        let customSC = UISegmentedControl(items: items)
+        //        customSC.selectedSegmentIndex = 0
+        //        customSC.frame = CGRect(x:5 , y:height/2.5,
+        //                                width:width-20, height:height/20)
+        //        customSC.layer.cornerRadius = 5.0  // Don't let background bleed
+        //        customSC.backgroundColor = UIColor.white
+        //        customSC.tintColor = UIColor.darkGray
+        //
+        //
+        //         collectionView?.addSubview(customSC)
+        
         
         // Register cell identifier
         self.collectionView?.register(PhotoCaptionCell.self,
                                       forCellWithReuseIdentifier: self.reuseIdentifier)
     }
+    
+    
+    
+    func buttonPressed(sender: UIButton!) {
+        
+        
+        switch sender.tag {
+        case BUTTON.MENU:
+            print("menu clicked")
+        case BUTTON.SEARCH:
+            print("button clicked")
+            self.performSegue(withIdentifier:"ToNext", sender: self)
+        default:
+            print("default")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToNext"{
+            
+            print("segueToNext segue execute")
+        }
+    }
+    
 }
 
 // MARK: UICollectionViewDelegate
@@ -172,12 +210,30 @@ extension MainCollectionViewController {
                 fatalError("Could not dequeue cell")
         }
         cell.setUpWithImage(photos[indexPath.item].image,
-                            title: photos[indexPath.item].text,
+                            title: photos[indexPath.item].tag,
                             style: BeigeRoundedPhotoCaptionCellStyle())
         cell.layer.borderWidth = 0.0
+        cell.isUserInteractionEnabled = true
         
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // handle tap events
+        print("You selected cell #\(indexPath.item)!")
+        
+        
+        
+        let storyboard = UIStoryboard(name: "DetailPhotographer", bundle: nil)
+        let controller = storyboard.instantiateInitialViewController() as! DetailVC
+        
+        controller.id = photos[indexPath.row].pId
+        present(controller, animated: true, completion: nil)
+        
+//        self.performSegue(withIdentifier:"ToDetail", sender: self)
+        //        let controller = self.storyboard?.instantiateViewController(withIdentifier: "secondVC")
+        //        self.present(controller!, animated: true, completion: nil)
     }
 }
 
@@ -197,7 +253,7 @@ extension MainCollectionViewController: MultipleColumnLayoutDelegate {
                         heightForAnnotationAtIndexPath indexPath: IndexPath,
                         withWidth width: CGFloat) -> CGFloat {
         
-        let rect = NSString(string: photos[indexPath.item].text)
+        let rect = NSString(string: photos[indexPath.item].tag)
             .boundingRect(
                 with: CGSize(width: width,
                              height: CGFloat(MAXFLOAT)),
@@ -205,7 +261,7 @@ extension MainCollectionViewController: MultipleColumnLayoutDelegate {
                 attributes: [NSFontAttributeName: cellStyle.titleFont],
                 context: nil)
         
-
+        
         return ceil(rect.height + cellStyle.titleInsets.top + cellStyle.titleInsets.bottom)
     }
 }
