@@ -25,7 +25,7 @@ class MainCollectionViewController: UICollectionViewController, UITextFieldDeleg
     var searchBarTextField: UITextField = {
         let bar = UITextField()
         bar.borderStyle = .roundedRect
-        bar.placeholder = "search….."
+        bar.placeholder = "태그를 통해 검색하세요"
         bar.returnKeyType = .search
         
         return bar
@@ -169,7 +169,11 @@ class MainCollectionViewController: UICollectionViewController, UITextFieldDeleg
                 if photo.tag.contains(searchBarTextField.text!) {
                     willPrintPhotos.removeAll()
                     print(photo.tag)
+                    
+                    
                     willPrintPhotos.append(photo)
+                    
+                    //self.collectionView?.reloadData()
                 }
             }
         } else {
@@ -293,8 +297,8 @@ class MainCollectionViewController: UICollectionViewController, UITextFieldDeleg
             print("menu clicked")
         case BUTTON.SEARCH:
             print("button clicked")
-            self.view.addSubview(searchBarTextField)
-            searchBarTextField.frame = CGRect(x: 70, y: 45, width: 240, height: 30)
+collectionView?.addSubview(searchBarTextField)
+            searchBarTextField.frame = CGRect(x: 70, y: 25, width: 240, height: 30)
         //self.performSegue(withIdentifier:"ToNext", sender: self)
         default:
             print("default")
@@ -347,7 +351,10 @@ extension MainCollectionViewController {
         let storyboard = UIStoryboard(name: "DetailPhotographer", bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as! DetailVC
         
-        controller.id = willPrintPhotos[indexPath.row].pId
+        let user = UserDefaults.standard
+        user.set(willPrintPhotos[indexPath.row].pId, forKey: "user")
+        
+        //controller.id = willPrintPhotos[indexPath.row].pId
         present(controller, animated: true, completion: nil)
         
         //        self.performSegue(withIdentifier:"ToDetail", sender: self)

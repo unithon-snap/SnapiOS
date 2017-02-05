@@ -58,7 +58,11 @@ class PhotographerInfoVC: UIViewController {
         //서버통신
         let baseURL = "http://ssoma.xyz:3000/v1.0/detailInfo"
        
-        let parameters : Parameters = ["resumIdx":DetailVC.index]
+        let user = UserDefaults.standard
+        let result = user.string(forKey: "user")
+        
+        
+        let parameters : Parameters = ["resumIdx":result!]
         
         Alamofire.request(baseURL,method : .post, parameters: parameters, encoding: URLEncoding.default, headers: nil)
             .responseJSON { (response:DataResponse<Any>) in

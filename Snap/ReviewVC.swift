@@ -49,7 +49,11 @@ class ReviewVC: UIViewController {
         
         //서버통신
         //let baseURL = "http://52.78.22.120:3000/api/resume/\(DetailVC.index)/review"
-        let baseURL = "http://52.78.22.120:3000/api/resume/\(DetailVC.index)/review"
+        
+        let user = UserDefaults.standard
+        let result = user.string(forKey: "user")
+        
+        let baseURL = "http://52.78.22.120:3000/api/resume/\(result!)/review"
         
         Alamofire.request(baseURL,method : .get, parameters: nil, encoding: URLEncoding.default, headers: nil)
             .responseJSON { (response:DataResponse<Any>) in

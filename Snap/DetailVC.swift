@@ -11,7 +11,9 @@ import UIKit
 class DetailVC: UIViewController {
     
     // Mark: 한경님께 전달받을 변수
-    var id: String = ""
+    
+    
+    //var id: String = ""
     
     //---------------------------------
     
@@ -46,17 +48,21 @@ class DetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sampleImages = [UIImage(data: NSData(contentsOf: NSURL(string: "http://ssoma.xyz:3000/imgs/\(id)/pic_\(0).png")! as URL)! as Data)!,
-                        UIImage(data: NSData(contentsOf: NSURL(string: "http://ssoma.xyz:3000/imgs/\(id)/pic_\(1).png")! as URL)! as Data)!,
-                        UIImage(data: NSData(contentsOf: NSURL(string: "http://ssoma.xyz:3000/imgs/\(id)/pic_\(2).png")! as URL)! as Data)!,
-                        UIImage(data: NSData(contentsOf: NSURL(string: "http://ssoma.xyz:3000/imgs/\(id)/pic_\(3).png")! as URL)! as Data)!,
-                        UIImage(data: NSData(contentsOf: NSURL(string: "http://ssoma.xyz:3000/imgs/\(id)/pic_\(4).png")! as URL)! as Data)!]
+        let user = UserDefaults.standard
+        let result = user.string(forKey: "user")
+        //id = result!
+        
+        sampleImages = [UIImage(data: NSData(contentsOf: NSURL(string: "http://ssoma.xyz:3000/imgs/\(result!)/pic_\(0).png")! as URL)! as Data)!,
+                        UIImage(data: NSData(contentsOf: NSURL(string: "http://ssoma.xyz:3000/imgs/\(result!)/pic_\(1).png")! as URL)! as Data)!,
+                        UIImage(data: NSData(contentsOf: NSURL(string: "http://ssoma.xyz:3000/imgs/\(result!)/pic_\(2).png")! as URL)! as Data)!,
+                        UIImage(data: NSData(contentsOf: NSURL(string: "http://ssoma.xyz:3000/imgs/\(result!)/pic_\(3).png")! as URL)! as Data)!,
+                        UIImage(data: NSData(contentsOf: NSURL(string: "http://ssoma.xyz:3000/imgs/\(result!)/pic_\(4).png")! as URL)! as Data)!]
         setupViews()
         getInfoFromServer()
         
-        DetailVC.index = id
-        print("aaa")
-        print(DetailVC.index)
+        //DetailVC.index = id
+        //print("aaa")
+        //print(DetailVC.index)
     }
     
     func getInfoFromServer(){
