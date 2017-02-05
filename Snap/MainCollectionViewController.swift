@@ -12,7 +12,7 @@ import Alamofire
 import SwiftyJSON
 // Inspired by: RayWenderlich.com pinterest-basic-layout
 
-class MainCollectionViewController: UICollectionViewController {
+class MainCollectionViewController: UICollectionViewController, UITextFieldDelegate {
     
     struct BUTTON{
         static let MENU = 0
@@ -20,6 +20,16 @@ class MainCollectionViewController: UICollectionViewController {
     }
     
     let userDevice = DeviceResize(testDeviceModel: DeviceType.IPHONE_7,userDeviceModel: (Float(ScreenSize.SCREEN_WIDTH),Float(ScreenSize.SCREEN_HEIGHT)))
+    
+    // 검색바
+    var searchBarTextField: UITextField = {
+        let bar = UITextField()
+        bar.borderStyle = .roundedRect
+        bar.placeholder = "search….."
+        bar.returnKeyType = .search
+        
+        return bar
+    }()
     
     
     
@@ -44,6 +54,9 @@ class MainCollectionViewController: UICollectionViewController {
     // MARK: Data
     //fileprivate let photos = Photo.allPhotos()
     var photos : [Photo] = []
+    var searchedPhotos: [Photo] = [] // 검색된 사진들
+    var willPrintPhotos: [Photo] = [] // 표시될 사진들
+    
     
     required init(coder aDecoder: NSCoder) {
         let layout = MultipleColumnLayout()
@@ -122,7 +135,7 @@ class MainCollectionViewController: UICollectionViewController {
                             let url = "http://ssoma.xyz:3000/imgs/\(idxs)/pic_\(0).png"
                             print(url)
                             self.photos.append(Photo( image: UIImage(data: NSData(contentsOf: NSURL(string: url)! as URL)! as Data)!, tag: tags!, pId: idxs))
-                            
+                            self.willPrintPhotos.append(Photo( image: UIImage(data: NSData(contentsOf: NSURL(string: url)! as URL)! as Data)!, tag: tags!, pId: idxs))
                             //self.photos.append(Photo( image: UIImage(named:"image0\(i+1)")!, tag: tags!, pId: idxs))
                         }
                         
@@ -143,6 +156,30 @@ class MainCollectionViewController: UICollectionViewController {
         
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchUsingTag()
+        return true
+    }
+    
+    func searchUsingTag() {
+        if searchBarTextField.text != nil {
+            
+            for photo in photos {
+                
+                if photo.tag.contains(searchBarTextField.text!) {
+                    willPrintPhotos.removeAll()
+                    print(photo.tag)
+                    willPrintPhotos.append(photo)
+                }
+            }
+        } else {
+                willPrintPhotos = photos
+        }
+//        self.collectionView?.clearsContextBeforeDrawing
+//        self.collectionView?.reloadData()
+
+
+    }
     // MARK: Private
     
     fileprivate func setUpUI() {
@@ -154,6 +191,11 @@ class MainCollectionViewController: UICollectionViewController {
         
         // Set title
         title = "Variable height layout"
+        
+        
+        searchBarTextField.delegate = self
+        searchBarTextField.addTarget(self, action: #selector(textValueChanged), for: .editingChanged)
+        
         
         // Set generic styling
         collectionView?.backgroundColor = UIColor.clear
@@ -239,7 +281,9 @@ class MainCollectionViewController: UICollectionViewController {
                                       forCellWithReuseIdentifier: self.reuseIdentifier)
     }
     
-    
+    func textValueChanged() {
+        searchUsingTag()
+    }
     
     func buttonPressed(sender: UIButton!) {
         
@@ -249,6 +293,8 @@ class MainCollectionViewController: UICollectionViewController {
             print("menu clicked")
         case BUTTON.SEARCH:
             print("button clicked")
+            self.view.addSubview(searchBarTextField)
+            searchBarTextField.frame = CGRect(x: 70, y: 45, width: 240, height: 30)
         //self.performSegue(withIdentifier:"ToNext", sender: self)
         default:
             print("default")
@@ -270,7 +316,7 @@ extension MainCollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView,
                                  numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        return willPrintPhotos.count
     }
     
     override func collectionView(_ collectionView: UICollectionView,
@@ -282,8 +328,8 @@ extension MainCollectionViewController {
             else {
                 fatalError("Could not dequeue cell")
         }
-        cell.setUpWithImage(photos[indexPath.item].image,
-                            title: photos[indexPath.item].tag,
+        cell.setUpWithImage(willPrintPhotos[indexPath.item].image,
+                            title: willPrintPhotos[indexPath.item].tag,
                             style: BeigeRoundedPhotoCaptionCellStyle())
         cell.layer.borderWidth = 0.0
         cell.isUserInteractionEnabled = true
@@ -301,7 +347,7 @@ extension MainCollectionViewController {
         let storyboard = UIStoryboard(name: "DetailPhotographer", bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as! DetailVC
         
-        controller.id = photos[indexPath.row].pId
+        controller.id = willPrintPhotos[indexPath.row].pId
         present(controller, animated: true, completion: nil)
         
         //        self.performSegue(withIdentifier:"ToDetail", sender: self)

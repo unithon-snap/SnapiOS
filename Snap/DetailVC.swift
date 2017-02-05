@@ -165,7 +165,7 @@ extension DetailVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayo
         return 8
     } // 셀의 간격
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        closeInfoView()
     } // 셀 선택시
     
     

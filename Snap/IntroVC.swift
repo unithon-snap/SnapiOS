@@ -8,12 +8,13 @@
 
 import UIKit
 
-class IntroVC: UIViewController {
+class IntroVC: UIViewController, UITextViewDelegate {
 
     
     @IBOutlet weak var normalButton: UIButton!
     
     @IBOutlet weak var photographerButton: UIButton!
+    @IBOutlet weak var nicknameTextField: UITextField!
     
     
     override func viewDidLoad() {
@@ -23,6 +24,9 @@ class IntroVC: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        nicknameTextField.resignFirstResponder()
+    }
     func setupViews() {
         normalButton.layer.cornerRadius = 20
         

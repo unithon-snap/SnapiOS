@@ -24,7 +24,7 @@ class PostReviewVC: UIViewController, UITextViewDelegate {
         
         bodyTextView.text = placeholderText
         
-        
+        postButton.layer.cornerRadius = 20
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

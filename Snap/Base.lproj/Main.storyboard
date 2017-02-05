@@ -52,6 +52,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ele-UK-wPD" id="xrz-QX-N2v"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sUS-bV-V4X">
                                 <rect key="frame" x="67" y="384" width="240" height="1"/>
@@ -83,6 +86,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nicknameTextField" destination="e5R-sc-bAK" id="OBd-TV-pVb"/>
                         <outlet property="normalButton" destination="G8S-px-bKX" id="Atd-AC-egj"/>
                         <outlet property="photographerButton" destination="iRb-rt-R2i" id="bHZ-dm-0yO"/>
                     </connections>
@@ -176,7 +180,7 @@
         <scene sceneID="31g-XL-4DY">
             <objects>
                 <collectionViewController id="khU-pn-eah" customClass="MainCollectionViewController" customModule="Snap" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="64E-4X-dSI">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="64E-4X-dSI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
